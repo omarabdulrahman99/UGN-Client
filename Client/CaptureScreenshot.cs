@@ -32,14 +32,15 @@ namespace UGN_Client
         private static extern int DwmIsCompositionEnabled(out bool enabled);
 
         [DllImport("user32.dll")]
-        private static extern IntPtr GetWindowRect(IntPtr hWnd, ref Rect rect);
+        private static extern IntPtr GetWindowRect(IntPtr hWnd, ref Rect rect); //screen resolution
 
         [DllImport("user32.dll")]
-        private static extern int GetForegroundWindow();
+        private static extern int GetForegroundWindow(); //current active window
 
         [DllImport("user32.dll")]
-        private static extern int GetWindowText(int hWnd, StringBuilder text, int count);
-
+        private static extern int GetWindowText(int hWnd, StringBuilder text, int count);//specified window's title text
+        
+        //
         private static void GetActiveWindow()
         {
 
@@ -48,7 +49,7 @@ namespace UGN_Client
             StringBuilder Buff = new StringBuilder(nChars);
 
             handle = GetForegroundWindow();
-
+     
             if (GetWindowText(handle, Buff, nChars) > 0)
             {
                 captionWindowLabel = Buff.ToString();
