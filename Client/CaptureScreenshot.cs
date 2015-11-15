@@ -27,7 +27,7 @@ namespace UGN_Client
 
         // Load all the .dll magic
 
-        // This is needed to detect if Aero is enabled or not
+        // This is needed to detect if Aero is enabled or not (hacks use them to display overlays)
         [DllImport("dwmapi.dll", EntryPoint="DwmIsCompositionEnabled")]
         private static extern int DwmIsCompositionEnabled(out bool enabled);
 
